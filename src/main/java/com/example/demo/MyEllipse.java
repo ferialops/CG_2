@@ -44,7 +44,7 @@ public class MyEllipse {
             int b2 = b * b;
             int err = b2 - a2 * b + a2 / 4;
 
-            while (y >= 0) {
+            while (y >= 0 && x <= a) {
                 drawPixel(gc, x0 + x, y0 + y);
                 drawPixel(gc, x0 - x, y0 + y);
                 drawPixel(gc, x0 + x, y0 - y);
@@ -58,15 +58,6 @@ public class MyEllipse {
                     y--;
                     err -= b2 * (2 * y - 1);
                 }
-            }
-
-            while (x <= a) {
-                drawPixel(gc, x0 + x, y0 + y);
-                drawPixel(gc, x0 - x, y0 + y);
-                drawPixel(gc, x0 + x, y0 - y);
-                drawPixel(gc, x0 - x, y0 - y);
-                x++;
-                err += b2 * (2 * x + 1);
             }
         }
 
